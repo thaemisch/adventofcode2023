@@ -1,9 +1,11 @@
-use std::io;
+use std::io::{self, Write};
 
 mod day1;
 
 fn main() {
-    println!("Enter day:");
+    println!("Advent of Code 2023");
+    print!("Enter day: ");
+    std::io::stdout().flush().unwrap();
 
     let mut input = String::new();
     io::stdin()
@@ -12,7 +14,8 @@ fn main() {
 
     let number: u32 = input.trim().parse().expect("Invalid input");
 
-    println!("Enter part:");
+    print!("Enter part: ");
+    std::io::stdout().flush().unwrap();
 
     let mut input_part = String::new();
     io::stdin()

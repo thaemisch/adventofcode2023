@@ -27,8 +27,13 @@ fn part_one() -> io::Result<()> {
             }
         }
         let mut first_plus_last = String::new();
-        first_plus_last.push(numbers.chars().nth(0).unwrap());
-        first_plus_last.push(numbers.chars().nth(numbers.len() - 1).unwrap());
+        if numbers.len() == 1 {
+            first_plus_last.push(numbers.chars().nth(0).unwrap());
+            first_plus_last.push(numbers.chars().nth(0).unwrap());
+        } else {
+            first_plus_last.push(numbers.chars().nth(0).unwrap());
+            first_plus_last.push(numbers.chars().nth(numbers.len() - 1).unwrap());
+        }
 
         let subtotal: i32 = first_plus_last.parse::<i32>().unwrap();
         total += subtotal;
@@ -48,8 +53,13 @@ fn part_two() -> io::Result<()> {
         let line = line?;
         let numbers: String = transform_string(&line);
         let mut first_plus_last = String::new();
-        first_plus_last.push(numbers.chars().nth(0).unwrap());
-        first_plus_last.push(numbers.chars().nth(numbers.len() - 1).unwrap());
+        if numbers.chars().count() == 1 {
+            first_plus_last.push(numbers.chars().nth(0).unwrap());
+            first_plus_last.push(numbers.chars().nth(0).unwrap());
+        } else {
+            first_plus_last.push(numbers.chars().nth(0).unwrap());
+            first_plus_last.push(numbers.chars().nth(numbers.len() - 1).unwrap());
+        }
 
         let subtotal: i32 = first_plus_last.parse::<i32>().unwrap();
         total += subtotal;
@@ -80,7 +90,7 @@ fn transform_string(input: &str) -> String {
         } else if c.is_alphabetic() {
             temp.push(c);
             for &(num_str, num_char) in &numbers {
-                if temp.contains(num_str) {
+                if temp.ends_with(num_str) {
                     result.push(num_char);
                     temp.clear();
                     break;
@@ -88,6 +98,5 @@ fn transform_string(input: &str) -> String {
             }
         }
     }
-
     result
 }
