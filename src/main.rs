@@ -1,6 +1,11 @@
 use std::io::{self, Write};
 
-mod day1;
+use crate::days::day1;
+mod days {
+    pub mod day1;
+}
+
+
 
 fn main() {
     println!("Advent of Code 2023");
