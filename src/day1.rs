@@ -92,7 +92,6 @@ fn transform_string(input: &str) -> String {
             for &(num_str, num_char) in &numbers {
                 if temp.ends_with(num_str) {
                     result.push(num_char);
-                    temp.clear();
                     break;
                 }
             }
