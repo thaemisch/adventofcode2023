@@ -27,7 +27,7 @@ fn part_one() -> io::Result<()> {
             }
         }
         let mut first_plus_last = String::new();
-        if numbers.len() == 1 {
+        if numbers.chars().count() == 1 {
             first_plus_last.push(numbers.chars().nth(0).unwrap());
             first_plus_last.push(numbers.chars().nth(0).unwrap());
         } else {
