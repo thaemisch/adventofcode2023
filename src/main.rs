@@ -1,8 +1,10 @@
 use std::io::{self, Write};
 
 use crate::days::day1;
+use crate::days::day2;
 mod days {
     pub mod day1;
+    pub mod day2;
 }
 
 
@@ -32,6 +34,11 @@ fn main() {
     match number {
         1 => {
             if let Err(err) = day1::main(part) {
+                eprintln!("Error: {}", err);
+            }
+        }
+        2 => {
+            if let Err(err) = day2::main(part) {
                 eprintln!("Error: {}", err);
             }
         }
